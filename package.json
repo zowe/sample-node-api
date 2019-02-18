@@ -1,0 +1,19 @@
+{
+  "name": "sample-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server/server.js",
+    "test": "istanbul cover cucumber-js -- test/features/*feature --require test/support/ --report cobertura --report html --tags \"not @leave\""
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cucumber": "^5.1.0",
+    "express": "^4.16.4",
+    "supertest": "^3.4.2",
+    "assert": "^1.4.1",
+    "istanbul": "^0.4.5"
+  }
+}
