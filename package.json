@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node server/server.js",
+    "start": "node server/app.js",
     "test": "istanbul cover cucumber-js -- test/features/*feature --require test/support/ --report cobertura --report html --tags \"not @leave\""
   },
   "author": "",
