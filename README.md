@@ -3,16 +3,16 @@ A sample node js api for finding cars and accounts for a dealership,its used her
 
 ## Manual Installation 
 
-### Steps
+## Steps
 
-Note:  
+**Note**  
 `Only rest api with https support can be deployed behind API/ML, make sure to enable https support in your respective api.
 ` 
 
 
-Note:   
-Replace `/u/zowe/ibmuser/1.0.0/` with your zowe installation folder
-Replace `ibmuser@my.mainframe.com` with your username and mainframe-ip
+**Note**  
+Replace `/u/zowe/ibmuser/1.0.0/` with your zowe installation folder    
+Replace `ibmuser@my.mainframe.com` with your username and mainframe-ip    
 
 
 This sample express app, has https enabled already.    
@@ -26,10 +26,10 @@ npm install
 npm start
 ```
 
-Open your local browser and try accessing
-`https://localhost:4000/accounts/`
-`https://localhost:4000/accounts/1`
-`https://localhost:4000/accounts/1/cars/`
+Open your local browser and try accessing     
+`https://localhost:4000/accounts/`   
+`https://localhost:4000/accounts/1`   
+`https://localhost:4000/accounts/1/cars/`   
 
 2) Transfer yaml from local to host, to register a plugin API/ML layer
 
@@ -73,10 +73,10 @@ vi run-zowe.sh
 
 6) Restart Zowe
 
-7) Access newly deployed webservice behind api/v1
-`https://my.mainframe.com:7554/api/v1/node-sample-api/accounts/`
-`https://my.mainframe.com:7554/api/v1/node-sample-api/accounts/1/`
-`https://my.mainframe.com:7554/api/v1/node-sample-api/accounts/1/cars/`
+7) Access newly deployed webservice behind api/v1         
+`https://my.mainframe.com:7554/api/v1/node-sample-api/accounts/`           
+`https://my.mainframe.com:7554/api/v1/node-sample-api/accounts/1/`           
+`https://my.mainframe.com:7554/api/v1/node-sample-api/accounts/1/cars/`           
 
 
 
