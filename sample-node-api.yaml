@@ -1,0 +1,20 @@
+services:
+    - serviceId: node-sample-api
+      title: Node Sample API
+      description: Example Node.js Application
+      catalogUiTileId: node-sample-api
+      instanceBaseUrls:
+        - https://my.mainframe.com:18000/
+      homePageRelativeUrl:  # Home page is at the same URL
+      routedServices:
+        - gatewayUrl: api/v1  # [api/ui/ws]/v{majorVersion}
+          serviceRelativeUrl:
+      apiInfo:
+        - apiId: com.ibm.node-sample-api
+          gatewayUrl: api/v1
+          version: 0.0.1
+
+catalogUiTiles:
+    node-sample-api:
+      title: Node Sample API
+      description: Example Node.js Application
