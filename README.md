@@ -17,6 +17,8 @@ Replace `ibmuser@my.mainframe.com` with your username and mainframe-ip
 
 This sample express app, has https enabled already.    
 
+# Donwload and transfer project files
+
 ### 1) Clone the repository, install node packages  and verify routes locally
 
 ``` 
@@ -58,7 +60,10 @@ scp -r server ibmuser@my.mainframe.com:/u/zowe/ibmuser/1.0.0/sample-node-api/ser
 scp -r sslcert ibmuser@my.mainframe.com:/u/zowe/ibmuser/1.0.0/sample-node-api/sslcert
 ```
 
-### 3) Install node packages required by API
+
+# Setup and Register API on host
+
+### 1) Install node packages required by project
 
 ```
 // on remote
@@ -66,7 +71,16 @@ cd /u/zowe/ibmuser/1.0.0/sample-node-api
 npm install
 ```
 
-### 4) Register a plugin API/ML layer using yml file
+### 2) Modify startup script permission
+Change unix permission of start up shell script `start-sample-node-api.sh`, so `run-zowe.sh` script can start a API 
+
+```
+// on remote
+cd /u/zowe/ibmuser/1.0.0/sample-node-api/scripts
+chmod 755 start-sample-node-api.sh
+```
+
+### 3) Register a plugin API/ML layer using yml file
 
 **Note**  
 Require encoding for `sample-node-api.yml` is `IBM-850`, use `iconv` utility to convert it to correct format  
@@ -80,7 +94,8 @@ iconv -t IBM-850 -f IBM-1047 sample-node-api.yml.1047 > sample-node-api.yml
 mv sample-node-api.yml ../api-mediation/api-defs/
 ```
 
-### 5) Edit `run-zowe.sh` on remote append node app startup script
+### 4) Modify zowe startup script to include API startup script
+Edit `run-zowe.sh` on remote append node app startup script
 
 ```
 // on remote
@@ -93,9 +108,11 @@ Append following start command for sample-node-api, among similar command from a
 `dirname $0`/../../sample-node-api/scripts/start-sample-node-api.sh
 ```
 
-### 6) Restart Zowe
+# Run Project
 
-### 7) Access newly deployed webservice behind api/v1         
+### 1) Restart Zowe
+
+### 2) Access newly deployed webservice behind api/v1         
 `https://my.mainframe.com:7554/api/v1/node-sample-api/accounts/`           
 `https://my.mainframe.com:7554/api/v1/node-sample-api/accounts/1/`           
 `https://my.mainframe.com:7554/api/v1/node-sample-api/accounts/1/cars/`           
