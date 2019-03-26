@@ -112,6 +112,19 @@ Append following start command for sample-node-api, among similar command from a
 
 ### 1) Restart Zowe
 
+
+**Note**  
+Replace `ZOWESVR` below with name of your installed zowe instance
+
+from TN3270 terminal
+```
+# stop/cancel
+/c ZOWESVR
+
+# start/restart
+/s ZOWESVR
+```
+
 ### 2) Access newly deployed webservice behind api/v1         
 `https://my.mainframe.com:7554/api/v1/node-sample-api/accounts/`           
 `https://my.mainframe.com:7554/api/v1/node-sample-api/accounts/1/`           
