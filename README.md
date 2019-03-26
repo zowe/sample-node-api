@@ -17,7 +17,7 @@ Replace `ibmuser@my.mainframe.com` with your username and mainframe-ip
 
 This sample express app, has https enabled already.    
 
-# Donwload and transfer project files
+# Download and transfer project files
 
 ### 1) Clone the repository, install node packages  and verify routes locally
 
@@ -38,7 +38,7 @@ Open your local browser and try accessing
 ### 2) Transfer project files from local to remote host
 
 **Note**  
-Don't transfer `node_moules` folder, we can do install npm install later on remote server itself to pull down required node packages
+Don't transfer `node_modules` folder, we can do install npm install later on remote server itself to pull down required node packages
 
 ```
 // on remote - Create placeholder directory for your node app
@@ -126,9 +126,9 @@ from TN3270 terminal
 ```
 
 ### 2) Access newly deployed webservice behind api/v1         
-`https://my.mainframe.com:7554/api/v1/node-sample-api/accounts/`           
-`https://my.mainframe.com:7554/api/v1/node-sample-api/accounts/1/`           
-`https://my.mainframe.com:7554/api/v1/node-sample-api/accounts/1/cars/`           
+`https://my.mainframe.com:7554/api/v1/sample-node-api/accounts/`           
+`https://my.mainframe.com:7554/api/v1/sample-node-api/accounts/1/`           
+`https://my.mainframe.com:7554/api/v1/sample-node-api/accounts/1/cars/`           
 
 
 
