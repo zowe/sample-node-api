@@ -125,6 +125,14 @@ from TN3270 terminal
 /s ZOWESVR
 ```
 
+Or, we can use zowe helper scripts to restart zowe
+```
+ssh ibmuser@my.mainframe.com
+cd /u/zowe/ibmuser/1.0.0/scripts
+./zowe-stop.sh
+./zowe-start.sh
+```
+
 ### 2) Access newly deployed webservice behind api/v1         
 `https://my.mainframe.com:7554/api/v1/sample-node-api/accounts/`           
 `https://my.mainframe.com:7554/api/v1/sample-node-api/accounts/1/`           
