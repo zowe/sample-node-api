@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node server/app.js",
-    "test": "istanbul cover cucumber-js -- test/features/*feature --require test/support/ --report cobertura --report html --tags \"not @leave\""
+    "test": "istanbul cover ./node_modules/cucumber/bin/cucumber-js -- test/features/*feature --require test/support/ --report cobertura --report html --tags \"not @leave\""
   },
   "author": "",
   "license": "ISC",

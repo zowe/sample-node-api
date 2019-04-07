@@ -17,5 +17,5 @@ services:
 
 catalogUiTiles:
     sample-node-api:
-      title: Sample-Node-api
+      title: Sample-Node-Api
       description: Example Node.js Application
