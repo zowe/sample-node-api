@@ -78,6 +78,7 @@ Change unix permission of start up shell script `start-sample-node-api.sh`, so `
 // on remote
 cd /u/zowe/ibmuser/1.0.0/sample-node-api/scripts
 chmod 755 start-sample-node-api.sh
+chmod 755 restart-sample-node-api.sh
 ```
 
 ### 3) Register a plugin API/ML layer using yml file
