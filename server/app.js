@@ -16,8 +16,11 @@ const app = express();
 //TODO: use for whitelist only
 app.use(cors());
 const routes = require('./routes/index.route');
+const cli = require('./cli/index.route');
+
 app.get('/', (req, res) => res.send('Hello World!'));
 app.use(routes);
+app.use('/cli', cli);
 
 // const httpServer = http.createServer(app);
 const httpsServer = https.createServer(credentials, app);

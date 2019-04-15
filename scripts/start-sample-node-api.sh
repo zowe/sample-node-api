@@ -3,6 +3,7 @@
 # find node bin
 # export NODE_HOME=/usr/lpp/IBM/cnj/IBM/node-v6.14.4-os390-s390x 
 # export NODE_HOME=/Z23B/usr/lpp/IBM/cnj/IBM/node-v6.14.4-os390-s390x
+# export NODE_HOME=/u/nodejs/node-v6.16.0-os390-s390x
 
 echo 'starting sample node api...'
 if [ ! -z "$NODE_HOME" ]; then

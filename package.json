@@ -16,5 +16,8 @@
     "express": "^4.16.4",
     "istanbul": "^0.4.5",
     "supertest": "^3.4.2"
+  },
+  "devDependencies": {
+    "node-fetch": "^2.3.0"
   }
 }
