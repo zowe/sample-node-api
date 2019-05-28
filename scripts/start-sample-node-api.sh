@@ -21,5 +21,5 @@ SCRIPT_DIR=$(dirname "$0")
 cd "$SCRIPT_DIR/.."
 
 # start service
-$NODE_BIN $NPM_CLI run start &
+$NODE_BIN server/app.js &
 echo 'starting sample node api done'
