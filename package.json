@@ -8,7 +8,7 @@
     "test": "istanbul cover ./node_modules/cucumber/bin/cucumber-js -- test/features/*feature --require test/support/ --report cobertura --report html --tags \"not @leave\""
   },
   "author": "",
-  "license": "ISC",
+  "license": "EPL-2.0",
   "dependencies": {
     "assert": "^1.4.1",
     "cors": "^2.8.5",
