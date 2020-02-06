@@ -4,8 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node server/app.js",
-    "test": "istanbul cover ./node_modules/cucumber/bin/cucumber-js -- test/features/*feature --require test/support/ --report cobertura --report html --tags \"not @leave\""
+    "start": "node server/app.js"
   },
   "author": "",
   "license": "ISC",
@@ -15,7 +14,8 @@
     "cucumber": "^5.1.0",
     "express": "^4.16.4",
     "istanbul": "^0.4.5",
-    "supertest": "^3.4.2"
+    "supertest": "^3.4.2",
+    "yargs": "^15.1.0"
   },
   "devDependencies": {
     "node-fetch": "^2.3.0"
