@@ -34,13 +34,14 @@ scp -r sample-node-api ibmuser@my.mainframe.com:</usr/lpp/extender>/sample-node-
 ```
 
 ### 3) Register as External Component  
-Append to EXTERNAL_COMPONENT </usr/lpp/extender>/sample-node-api in INSTANCE_DIR/instance.env
+Append to EXTERNAL_COMPONENT </usr/lpp/extender>/sample-node-api/bin in INSTANCE_DIR/instance.env
 
 ```
  vi INSTANCE_DIR/instance.env
- EXTERNAL_COMPONENTS=</usr/lpp/extender>/sample-node-api
+ EXTERNAL_COMPONENTS=</usr/lpp/extender>/sample-node-api/bin
 ```
-It expects `bin` folder with `start.sh`, `configure.sh` and `validate.sh`, provide lifecycle hooks to configure and start your api component with rest rest of zowe.
+It expects folder with `start.sh`, `configure.sh` and `validate.sh`, provides lifecycle hooks to configure and start your api component with rest of zowe.
+In our case its bin folder with relevant scripts.
 
 ### 4) Access newly deployed webservice behind api/v1         
 `https://my.mainframe.com:7554/api/v1/sample-node-api/accounts/`           
