@@ -8,7 +8,7 @@ A sample node js api for finding cars and accounts for a dealership,its used her
 `   
 This sample express app, has https enabled already.    
 
-## On Local:
+## PART I: Download & Build on local
 
 ### 1) Clone the repository, install node packages  and verify routes locally
 
@@ -37,7 +37,7 @@ npm run build
 scp -r dist ibmuser@my.mainframe.com:</usr/lpp/extender>/sample-node-api
 ```
 
-## On Server
+## PART II: Deploy with Zowe on server
 
 ### 1) login
 ```  
