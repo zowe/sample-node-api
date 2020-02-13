@@ -8,6 +8,8 @@ A sample node js api for finding cars and accounts for a dealership,its used her
 `   
 This sample express app, has https enabled already.    
 
+## On Local:
+
 ### 1) Clone the repository, install node packages  and verify routes locally
 
 ``` 
@@ -30,20 +32,56 @@ Open your local browser and try accessing
 Don't transfer `node_modules` folder, we can do install npm install later on remote server itself to pull down required node packages
 
 ```
-scp -r sample-node-api ibmuser@my.mainframe.com:</usr/lpp/extender>/sample-node-api
+cd sample-node-api
+npm run build
+scp -r dist ibmuser@my.mainframe.com:</usr/lpp/extender>/sample-node-api
 ```
 
-### 3) Register as External Component  
-Append to EXTERNAL_COMPONENT </usr/lpp/extender>/sample-node-api/bin in INSTANCE_DIR/instance.env
+## On Server
 
+### 1) login
+```
+ssh ibmuser@my.mainframe.com
+```
+
+### 2) install dependencies
+```
+cd </usr/lpp/extender>/sample-node-api
+npm install --only=prod
+
+```
+
+### 3) Manage lifecycle of service with core zowe components
+
+Use property `EXTERNAL_COMPONENT` located in file `$INSTANCE_DIR/instance.env`
+Append it with your service lifecycle scripts.
+
+In our sample it is:
 ```
  vi INSTANCE_DIR/instance.env
  EXTERNAL_COMPONENTS=</usr/lpp/extender>/sample-node-api/bin
 ```
-It expects folder with `start.sh`, `configure.sh` and `validate.sh`, provides lifecycle hooks to configure and start your api component with rest of zowe.
+
+We expect following in service folder `start.sh`, `configure.sh` and `validate.sh`.
 In our case its bin folder with relevant scripts.
 
-### 4) Access newly deployed webservice behind api/v1         
+`configure.sh` it adds static definition for sample-node-api to folder ${INSTANCE_DIR}/workspace/api-mediation/api-defs in IBM-850 encoding
+`start.sh` starts node app on configured port
+`env.sh` its custom script use to configure port for our node app, feel free to use your desired way
+
+### 4) Access newly deployed webservice
+
+Please see static definition file `sample-node-api.yml`
+It configures service endpoint as `sample-node-api` with property `serviceId` 
+We also provide api gateway base path `api\v1` with property `gatewayUrl` in same file.
+
+
+In effect, service can be accessed with following url:
+`https://{host}:{GATEWAY_PORT}/{gatewayUrl}/{serviceId}/*`
+
+where `GATEWAY_PORT` is configured in $INSTANCE_DIR/instance.env
+
+Verify by accessing following:
 `https://my.mainframe.com:7554/api/v1/sample-node-api/accounts/`           
 `https://my.mainframe.com:7554/api/v1/sample-node-api/accounts/1/`           
 `https://my.mainframe.com:7554/api/v1/sample-node-api/accounts/1/cars/`           

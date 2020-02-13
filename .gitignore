@@ -2,4 +2,4 @@ coverage/
 node_modules/
 .vscode/
 output
-steps.md
+dist/**

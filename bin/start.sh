@@ -10,15 +10,29 @@
 # Copyright IBM Corporation 2020
 ################################################################################
 
+# Variables required on shell:
+# NODE_HOME
+# MY_API_NAME
+# MY_API_PORT
+# KEYSTORE_KEY
+# KEYSTORE_CERTIFICATE
+
+echo 'sample-node-api start begin'
 
 # find node bin
 NODE_BIN=${NODE_HOME}/bin/node
 
 #load component config
-. env.sh
+BASE_DIR=$(dirname "$0")
+COMPONENT_DIR="$( cd "${BASE_DIR}/.." >/dev/null 2>&1 && pwd )"
+cd $OLDPWD
+echo "COMPONENT_DIR: ${COMPONENT_DIR}"
 
-COMPONENT_DIR="${ROOT_DIR}/components/${MY_API_NAME}"
+# load config from env
+echo 'load sample-node-api config'
+. ${COMPONENT_DIR}/bin/env.sh
 
+echo "start sample-node-api app on port ${MY_API_PORT}"
 #start component
 $NODE_BIN $COMPONENT_DIR/server/app.js \
   --service ${MY_API_NAME} \
@@ -26,3 +40,5 @@ $NODE_BIN $COMPONENT_DIR/server/app.js \
 	--key  ${KEYSTORE_KEY} \
 	--cert ${KEYSTORE_CERTIFICATE} \
 	-v &
+
+echo 'sample-node-api start done'
