@@ -18,8 +18,9 @@
 
 echo 'sample-node-api configure begin'
 
-BASE_DIR=$(dirname "$0")
-COMPONENT_DIR="$( cd "${BASE_DIR}/.." >/dev/null 2>&1 && pwd )"
+echo "LAUNCH_COMPONENT: ${i} "
+BASE_DIR=$(dirname "${i}")
+COMPONENT_DIR="$( cd "${BASE_DIR}" >/dev/null 2>&1 && pwd )"
 cd $OLDPWD
 echo "COMPONENT_DIR: ${COMPONENT_DIR}"
 
