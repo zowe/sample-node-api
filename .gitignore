@@ -2,5 +2,4 @@ coverage/
 node_modules/
 .vscode/
 output
-dist/**
-!dist/.keep
+dist
