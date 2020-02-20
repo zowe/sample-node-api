@@ -18,10 +18,8 @@
 
 echo 'sample-node-api configure begin'
 
-echo "LAUNCH_COMPONENT: ${i} "
-BASE_DIR=$(dirname "${i}")
-COMPONENT_DIR="$( cd "${BASE_DIR}" >/dev/null 2>&1 && pwd )"
-cd $OLDPWD
+echo "LAUNCH_COMPONENT: ${LAUNCH_COMPONENT} "
+COMPONENT_DIR=$(dirname "${LAUNCH_COMPONENT}")
 echo "COMPONENT_DIR: ${COMPONENT_DIR}"
 
 echo 'load sample-node-api config'

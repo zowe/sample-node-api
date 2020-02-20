@@ -22,10 +22,8 @@ echo 'sample-node-api start begin'
 # find node bin
 NODE_BIN=${NODE_HOME}/bin/node
 
-echo "LAUNCH_COMPONENT: ${i} "
-BASE_DIR=$(dirname "${i}")
-COMPONENT_DIR="$( cd "${BASE_DIR}" >/dev/null 2>&1 && pwd )"
-cd $OLDPWD
+echo "LAUNCH_COMPONENT: ${LAUNCH_COMPONENT} "
+COMPONENT_DIR=$(dirname "${LAUNCH_COMPONENT}")
 echo "COMPONENT_DIR: ${COMPONENT_DIR}"
 
 # load config from env
