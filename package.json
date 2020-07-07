@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node server/app.js",
+    "start": "node server/app.js --service sample-node-api --port 8080 --key sslcert/server.key --cert sslcert/server.cert",
     "build": "npm run clean && cp -r server dist/server && cp -r bin dist/bin && cp *.yml dist && cp *.json dist && cp *.js dist && rimraf dist/package-lock.json",
     "clean": "rimraf dist && mkdirp dist"
   },

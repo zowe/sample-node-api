@@ -130,13 +130,22 @@ app.use(cors());
 const routes = require('./routes/index.route');
 
 app.get('/', (req, res) => res.send('Hello World!'));
+app.get('/health', (req, res) => {
+  const healthcheck = {
+		uptime: process.uptime(),
+		message: 'OK',
+		timestamp: Date.now()
+  };
+  res.send(JSON.stringify(healthcheck));
+});
 app.use(routes);
 
-// const httpServer = http.createServer(app);
+const httpServer = http.createServer(app);
 const httpsServer = https.createServer(credentials, app);
 
-// httpServer.listen(HTTP_PORT);
-httpsServer.listen(config.port);
-console.log(`server listening at port ${config.port}`);
+httpServer.listen(config.port);
+httpsServer.listen(config.port+1);
+console.log(`http server listening at port ${config.port}`);
+console.log(`https server listening at port ${config.port + 1}`);
 
 module.exports = { app };
