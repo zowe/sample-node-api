@@ -13,8 +13,8 @@ const http = require('http');
 const https = require('https');
 const fs = require('fs');
 const path = require("path");
+const cors = require('cors');
 
-const cors = require('cors')
 
 function buildConfig(argv) {
 
@@ -121,10 +121,15 @@ config = loadCertificateFiles(config);
 const {https:{key, cert}} = config;
 const credentials = { key, cert };
 
-
-
 const app = express();
-
+const swaggerUi = require('swagger-ui-express');
+const swaggerDocument = require('./swagger.json');
+ 
+var options = {
+  explorer: true
+};
+ 
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument, options));
 //TODO: use for whitelist only
 app.use(cors());
 const routes = require('./routes/index.route');

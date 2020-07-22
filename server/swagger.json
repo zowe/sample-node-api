@@ -1,0 +1,100 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Sample Node Api",
+    "description": "Sample Node Api",
+    "version": "1.0"
+  },
+  "produces": ["application/json"],
+  "host": "localhost:8080",
+  "basePath": "/",
+  "paths": {
+    "/accounts": {
+      "get": {
+        "x-swagger-router-controller": "accounts",
+        "operationId": "accounts",
+        "tags": ["/accounts"],
+        "description": "List all accounts",
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    "/accounts/{accountId}": {
+      "get": {
+        "x-swagger-router-controller": "accounts",
+        "operationId": "accounts",
+        "tags": ["/accounts"],
+        "description": "get account by id",
+        "parameters": [ {
+          "name": "accountId",
+          "in": "path",
+          "type": "number",
+          "required": true
+        }],
+        "responses": {}
+      }
+    },
+    "/accounts/{accountId}/cars": {
+      "get": {
+        "x-swagger-router-controller": "accounts",
+        "operationId": "accounts",
+        "tags": ["/accounts"],
+        "description": "get account cars by id",
+        "parameters": [ {
+          "name": "accountId",
+          "in": "path",
+          "type": "number",
+          "required": true
+        }],
+        "responses": {}
+      }
+    },
+    "/accounts/{accountId}/cars/{carId}": {
+      "get": {
+        "x-swagger-router-controller": "accounts",
+        "operationId": "accounts",
+        "tags": ["/accounts"],
+        "description": "get car by id of account by id",
+        "parameters": [ {
+          "name": "accountId",
+          "in": "path",
+          "type": "number",
+          "required": true
+        },
+        {
+          "name": "carId",
+          "in": "path",
+          "type": "number",
+          "required": true
+        }
+        ],
+        "responses": {}
+      }
+    },
+    "/cars": {
+      "get": {
+        "x-swagger-router-controller": "cars",
+        "operationId": "cars",
+        "tags": ["/cars"],
+        "description": "List all cars",
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    "/cars/{carId}": {
+      "get": {
+        "x-swagger-router-controller": "cars",
+        "operationId": "cars",
+        "tags": ["/cars"],
+        "description": "List car by id",
+        "parameters": [{
+          "name": "carId",
+          "in": "path",
+          "type": "number",
+          "required": true
+        }],
+        "responses": {}
+      }
+    }
+  }
+}
