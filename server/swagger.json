@@ -12,49 +12,70 @@
     "/accounts": {
       "get": {
         "x-swagger-router-controller": "accounts",
-        "operationId": "accounts",
+        "operationId": "accounts0",
         "tags": ["/accounts"],
         "description": "List all accounts",
         "parameters": [],
-        "responses": {}
+        "responses": {
+          "200": {
+            "description": "List all accounts",
+            "schema": {
+              "$ref": "#/definitions/Model0"
+            }
+          }
+        }
       }
     },
     "/accounts/{accountId}": {
       "get": {
         "x-swagger-router-controller": "accounts",
-        "operationId": "accounts",
+        "operationId": "accounts1",
         "tags": ["/accounts"],
-        "description": "get account by id",
+        "description": "List account by id",
         "parameters": [ {
           "name": "accountId",
           "in": "path",
           "type": "number",
           "required": true
         }],
-        "responses": {}
+        "responses": {
+          "200": {
+            "description": "List account by id",
+            "schema": {
+              "$ref": "#/definitions/Account"
+            }
+          }
+        }
       }
     },
     "/accounts/{accountId}/cars": {
       "get": {
         "x-swagger-router-controller": "accounts",
         "operationId": "accounts",
-        "tags": ["/accounts"],
-        "description": "get account cars by id",
+        "tags": ["/accounts2"],
+        "description": "List all cars by account id",
         "parameters": [ {
           "name": "accountId",
           "in": "path",
           "type": "number",
           "required": true
         }],
-        "responses": {}
+        "responses": {
+          "200": {
+            "description": "List all cars by account id",
+            "schema": {
+              "$ref": "#/definitions/Model1"
+            }
+          }
+        }
       }
     },
     "/accounts/{accountId}/cars/{carId}": {
       "get": {
         "x-swagger-router-controller": "accounts",
-        "operationId": "accounts",
+        "operationId": "accounts3",
         "tags": ["/accounts"],
-        "description": "get car by id of account by id",
+        "description": "List accounts car by id",
         "parameters": [ {
           "name": "accountId",
           "in": "path",
@@ -68,23 +89,37 @@
           "required": true
         }
         ],
-        "responses": {}
+        "responses": {
+          "200": {
+            "description": "List accounts car by id",
+            "schema": {
+              "$ref": "#/definitions/Car"
+            }
+          }
+        }
       }
     },
     "/cars": {
       "get": {
         "x-swagger-router-controller": "cars",
-        "operationId": "cars",
+        "operationId": "cars0",
         "tags": ["/cars"],
         "description": "List all cars",
         "parameters": [],
-        "responses": {}
+        "responses": {
+          "200": {
+            "description": "List all cars",
+            "schema": {
+              "$ref": "#/definitions/Model1"
+            }
+          }
+        }
       }
     },
     "/cars/{carId}": {
       "get": {
         "x-swagger-router-controller": "cars",
-        "operationId": "cars",
+        "operationId": "cars1",
         "tags": ["/cars"],
         "description": "List car by id",
         "parameters": [{
@@ -93,7 +128,108 @@
           "type": "number",
           "required": true
         }],
-        "responses": {}
+        "responses": {
+          "200": {
+            "description": "List car by id",
+            "schema": {
+              "$ref": "#/definitions/Car"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions":{
+    "Car": {
+      "properties": {
+        "_id": {
+          "type": "number",
+          "example": "0"
+        },
+        "Name": {
+          "type": "string",
+          "example": "chevrolet chevelle malibu"
+        },
+        "Miles_per_Gallon": {
+          "type": "number",
+          "example": "18"
+        },
+        "Cylinders": {
+          "type": "number",
+          "example": "8"
+        },
+        "Displacement": {
+          "type": "number",
+          "example": "307"
+        },
+        "Horsepower": {
+          "type": "number",
+          "example": "130"
+        },
+        "Weight_in_lbs": {
+          "type": "number",
+          "example": "3504"
+        },
+        "Acceleration": {
+          "type": "number",
+          "example": "12"
+        },
+        "Year": {
+          "type": "string",
+          "format": "date",
+          "example": "1970-01-01"
+        },
+        "Origin": {
+          "type": "string",
+          "example": "USA"
+        }
+      }
+    },
+    "Name": {
+      "properties": {
+        "first": {
+          "type": "string",
+          "example": "Deidre"
+        },
+        "last": {
+          "type": "string",
+          "example": "Hayes"
+        }
+      }
+    },
+    "Account": {
+      "properties": {
+        "_id": {
+          "type": "string",
+          "example": 0
+        },
+        "name": {
+          "$ref": "#/definitions/Name"
+        },
+        "email": {
+          "type": "string",
+          "example":"deidre.hayes@undefined.me"
+        },
+        "phone": {
+          "type": "string",
+          "example":"+1 (839) 577-3100"
+        },
+        "address": {
+          "type": "string",
+          "example": "507 Church Avenue, Heil, Wyoming, 1754"
+        }
+      }
+    },
+    "Model0": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Account"
+      }
+    },
+    "Model1": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Car"
       }
     }
   }
