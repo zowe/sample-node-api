@@ -52,7 +52,7 @@
       "get": {
         "x-swagger-router-controller": "accounts",
         "operationId": "accounts",
-        "tags": ["/accounts2"],
+        "tags": ["/accounts"],
         "description": "List all cars by account id",
         "parameters": [ {
           "name": "accountId",
