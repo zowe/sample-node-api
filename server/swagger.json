@@ -1,26 +1,26 @@
 {
-  "swagger": "2.0",
-  "info": {
-    "title": "Sample Node Api",
-    "description": "Sample Node Api",
-    "version": "1.0"
-  },
-  "produces": ["application/json"],
-  "host": "localhost:8080",
-  "basePath": "/",
+  "swagger":"2.0"
+  ,"info":{"description":"Sample Node API\n\n[Swagger/OpenAPI JSON Document](https://mainframe.ibm.com:47554/api/v1/apicatalog/apidoc/sample-node-api-http/v1)"
+  ,"version":"1.0"
+  ,"title":"Sample Node API"}
+  ,"host":"localhost:8080"
+  ,"basePath":"/"
+  ,"tags":[{"name":"Accounts","description":"Accounts API"},{"name":"Cars","description":"Cars API"}]
+  ,"schemes":["http"]
+  ,"produces": ["application/json"],
   "paths": {
     "/accounts": {
       "get": {
         "x-swagger-router-controller": "accounts",
-        "operationId": "accounts0",
-        "tags": ["/accounts"],
-        "description": "List all accounts",
+        "operationId": "getAllAccounts",
+        "tags": ["Accounts"],
+        "summary": "Get all accounts",
         "parameters": [],
         "responses": {
           "200": {
-            "description": "List all accounts",
+            "description": "Get all accounts",
             "schema": {
-              "$ref": "#/definitions/Model0"
+              "$ref": "#/definitions/ArrayOfAccounts"
             }
           }
         }
@@ -29,9 +29,9 @@
     "/accounts/{accountId}": {
       "get": {
         "x-swagger-router-controller": "accounts",
-        "operationId": "accounts1",
-        "tags": ["/accounts"],
-        "description": "List account by id",
+        "operationId": "getAccountDetail",
+        "tags": ["Accounts"],
+        "summary": "Get account by id",
         "parameters": [ {
           "name": "accountId",
           "in": "path",
@@ -40,7 +40,7 @@
         }],
         "responses": {
           "200": {
-            "description": "List account by id",
+            "description": "Get account by id",
             "schema": {
               "$ref": "#/definitions/Account"
             }
@@ -51,9 +51,9 @@
     "/accounts/{accountId}/cars": {
       "get": {
         "x-swagger-router-controller": "accounts",
-        "operationId": "accounts",
-        "tags": ["/accounts"],
-        "description": "List all cars by account id",
+        "operationId": "getCarsByAccount",
+        "tags": ["Accounts"],
+        "summary": "Get all cars for a given account",
         "parameters": [ {
           "name": "accountId",
           "in": "path",
@@ -62,9 +62,9 @@
         }],
         "responses": {
           "200": {
-            "description": "List all cars by account id",
+            "description": "Get all cars for a given account",
             "schema": {
-              "$ref": "#/definitions/Model1"
+              "$ref": "#/definitions/ArrayOfCars"
             }
           }
         }
@@ -73,9 +73,9 @@
     "/accounts/{accountId}/cars/{carId}": {
       "get": {
         "x-swagger-router-controller": "accounts",
-        "operationId": "accounts3",
-        "tags": ["/accounts"],
-        "description": "List accounts car by id",
+        "operationId": "getCarDetailByAccount",
+        "tags": ["Accounts"],
+        "summary": "Get car of a given account",
         "parameters": [ {
           "name": "accountId",
           "in": "path",
@@ -91,7 +91,7 @@
         ],
         "responses": {
           "200": {
-            "description": "List accounts car by id",
+            "description": "Get car of a given account",
             "schema": {
               "$ref": "#/definitions/Car"
             }
@@ -102,15 +102,15 @@
     "/cars": {
       "get": {
         "x-swagger-router-controller": "cars",
-        "operationId": "cars0",
-        "tags": ["/cars"],
-        "description": "List all cars",
+        "operationId": "getAllCars",
+        "tags": ["Cars"],
+        "summary": "Get all cars",
         "parameters": [],
         "responses": {
           "200": {
-            "description": "List all cars",
+            "description": "Get all cars",
             "schema": {
-              "$ref": "#/definitions/Model1"
+              "$ref": "#/definitions/ArrayOfAccounts"
             }
           }
         }
@@ -119,9 +119,9 @@
     "/cars/{carId}": {
       "get": {
         "x-swagger-router-controller": "cars",
-        "operationId": "cars1",
-        "tags": ["/cars"],
-        "description": "List car by id",
+        "operationId": "getCarDetail",
+        "tags": ["Cars"],
+        "summary": "Get car by id",
         "parameters": [{
           "name": "carId",
           "in": "path",
@@ -130,7 +130,7 @@
         }],
         "responses": {
           "200": {
-            "description": "List car by id",
+            "description": "Get car by id",
             "schema": {
               "$ref": "#/definitions/Car"
             }
@@ -220,13 +220,13 @@
         }
       }
     },
-    "Model0": {
+    "ArrayOfAccounts": {
       "type": "array",
       "items": {
         "$ref": "#/definitions/Account"
       }
     },
-    "Model1": {
+    "ArrayOfCars": {
       "type": "array",
       "items": {
         "$ref": "#/definitions/Car"
