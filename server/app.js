@@ -126,10 +126,17 @@ const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('./swagger.json');
  
 var options = {
-  explorer: true
+  explorer: false
 };
  
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument, options));
+// app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument, options));
+app.use('/api-docs-ui', function(req, res, next){
+  swaggerDocument.host = req.get('host');
+  req.swaggerDoc = swaggerDocument;
+  next();
+}, swaggerUi.serve, swaggerUi.setup());
+
+
 //TODO: use for whitelist only
 app.use(cors());
 const routes = require('./routes/index.route');
@@ -144,6 +151,11 @@ app.get('/health', (req, res) => {
   res.send(JSON.stringify(healthcheck));
 });
 app.use(routes);
+
+app.use('/api-docs',function(req, res, next){
+  swaggerDocument.host = req.get('host');
+  res.send(swaggerDocument);
+});
 
 const httpServer = http.createServer(app);
 const httpsServer = https.createServer(credentials, app);

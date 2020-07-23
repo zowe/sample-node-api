@@ -1,6 +1,6 @@
 {
   "swagger":"2.0"
-  ,"info":{"description":"Sample Node API\n\n[Swagger/OpenAPI JSON Document](https://mainframe.ibm.com:47554/api/v1/apicatalog/apidoc/sample-node-api-http/v1)"
+  ,"info":{"description":"Sample Node API"
   ,"version":"1.0"
   ,"title":"Sample Node API"}
   ,"host":"localhost:8080"

@@ -1,8 +1,8 @@
 #
 services:
     - serviceId: sample-node-api
-      title: Sample Node API
-      description: Example Node.js Application
+      title: Sample-Node-API
+      description: Sample Node API
       catalogUiTileId: sample-node-api
       instanceBaseUrls:
         - https://mymainframe.ibm.com:18000/
@@ -13,9 +13,11 @@ services:
       apiInfo:
         - apiId: com.ibm.sample-node-api
           gatewayUrl: api/v1
-          version: 0.0.1
+          version: 1.0.0
+          swaggerUrl: https://mymainframe.ibm.com:18000/api-docs
+          documentationUrl: https://mymainframe.ibm.com:18000/api-docs-ui
 
 catalogUiTiles:
     sample-node-api:
-      title: Sample-Node-Api
-      description: Example Node.js Application
+      title: Sample-Node-API
+      description: Sample Node API
