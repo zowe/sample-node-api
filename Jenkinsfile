@@ -108,7 +108,7 @@ node('ibm-jenkins-slave-dind') {
   )
 
   // define we need release stage
-  pipeline.release()
+  // pipeline.release()
 
   pipeline.end()
 }
