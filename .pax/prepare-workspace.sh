@@ -57,12 +57,13 @@ cp package.json "${PAX_WORKSPACE_DIR}/content"
 cp package-lock.json "${PAX_WORKSPACE_DIR}/content"
 cp -r dist/. "${PAX_WORKSPACE_DIR}/content"
 
+echo "Current contents:"
+find "${PAX_WORKSPACE_DIR}/content" -print
+
 # copy start script to target folder
 echo "[${SCRIPT_NAME}] copying startup script ..."
 mkdir -p "${PAX_WORKSPACE_DIR}/content/bin"
-mv -r bin/start.sh "${PAX_WORKSPACE_DIR}/content/bin"
-mv -r bin/configure.sh "${PAX_WORKSPACE_DIR}/content/bin"
-mv -r bin/env.sh "${PAX_WORKSPACE_DIR}/content/bin"
+cp -r bin/start.sh "${PAX_WORKSPACE_DIR}/content/bin"
 
 # move content to another folder
 rm -fr "${PAX_WORKSPACE_DIR}/ascii"
