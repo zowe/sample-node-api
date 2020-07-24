@@ -103,7 +103,8 @@ node('ibm-jenkins-slave-dind') {
     },
     artifacts: [
       '.pax/sample-node-api.pax'
-    ]
+    ],
+    allowPublishWithoutTest: true // There are no tests
   )
 
   // define we need release stage
