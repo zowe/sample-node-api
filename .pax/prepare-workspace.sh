@@ -44,7 +44,7 @@ mkdir -p "${PAX_WORKSPACE_DIR}/content"
 # build client
 if [ ! -f "dist/app.min.js" ]; then
   echo "[${SCRIPT_NAME}] building client ..."
-  npm run build
+  npm install
 fi
 
 cd "${ROOT_DIR}"
