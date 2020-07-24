@@ -53,8 +53,8 @@ npm install --only=prod
 
 ### 3) Manage lifecycle of service with core zowe components
 
-Use property `EXTERNAL_COMPONENT` located in file `$INSTANCE_DIR/instance.env`       
-Append it with your service lifecycle scripts.     
+Use property `EXTERNAL_COMPONENTS` located in file `$INSTANCE_DIR/instance.env`       
+Append it (comma separated) with the directory containing your service lifecycle scripts.
 
 In our sample it is:   
 ```

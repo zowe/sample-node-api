@@ -1,7 +1,7 @@
 {
   "name": "sample-node-api",
   "version": "1.0.0",
-  "description": "",
+  "description": "Zowe sample node API",
   "main": "index.js",
   "scripts": {
     "dev": "nodemon src/index.js",
