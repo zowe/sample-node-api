@@ -51,18 +51,18 @@ cd "${ROOT_DIR}"
 
 # copy explorer-jes to target folder
 echo "[${SCRIPT_NAME}] copying sample node api backend ..."
-mkdir -p "${PAX_WORKSPACE_DIR}/content/app"
-cp README.md "${PAX_WORKSPACE_DIR}/content/app"
-cp package.json "${PAX_WORKSPACE_DIR}/content/app"
-cp package-lock.json "${PAX_WORKSPACE_DIR}/content/app"
-cp -r dist/. "${PAX_WORKSPACE_DIR}/content/app"
+mkdir -p "${PAX_WORKSPACE_DIR}/content"
+cp README.md "${PAX_WORKSPACE_DIR}/content"
+cp package.json "${PAX_WORKSPACE_DIR}/content"
+cp package-lock.json "${PAX_WORKSPACE_DIR}/content"
+cp -r dist/. "${PAX_WORKSPACE_DIR}/content"
 
 # copy start script to target folder
 echo "[${SCRIPT_NAME}] copying startup script ..."
 mkdir -p "${PAX_WORKSPACE_DIR}/content/bin"
-cp -r bin/start.sh "${PAX_WORKSPACE_DIR}/content/bin"
-cp -r bin/configure.sh "${PAX_WORKSPACE_DIR}/content/bin"
-cp -r bin/env.sh "${PAX_WORKSPACE_DIR}/content/bin"
+mv -r bin/start.sh "${PAX_WORKSPACE_DIR}/content/bin"
+mv -r bin/configure.sh "${PAX_WORKSPACE_DIR}/content/bin"
+mv -r bin/env.sh "${PAX_WORKSPACE_DIR}/content/bin"
 
 # move content to another folder
 rm -fr "${PAX_WORKSPACE_DIR}/ascii"
