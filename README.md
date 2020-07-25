@@ -84,4 +84,14 @@ where `GATEWAY_PORT` is configured in $INSTANCE_DIR/instance.env
 Verify by accessing following:      
 `https://my.mainframe.com:7554/api/v1/sample-node-api/accounts/`            
 `https://my.mainframe.com:7554/api/v1/sample-node-api/accounts/1/`            
-`https://my.mainframe.com:7554/api/v1/sample-node-api/accounts/1/cars/`                 
+`https://my.mainframe.com:7554/api/v1/sample-node-api/accounts/1/cars/`              
+
+### 5) Registered With API Catalog
+
+**API Catalog**
+![APICatalog_Dashboard](./screenshots/APICatalog_Dashboard.png)
+
+![ApiCatalog_SampleNodeApi_SwaggerDoc](./screenshots/ApiCatalog_SampleNodeApi_SwaggerDoc.png)
+
+**Discovery Service Dashboard**
+![DiscoveryService_Dashboard](./screenshots/DiscoveryService_Dashboard.png)
