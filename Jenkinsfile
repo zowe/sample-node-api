@@ -55,35 +55,6 @@ node('ibm-jenkins-slave-dind') {
 
   pipeline.build()
 
-  // // we have a custom build command
-  // pipeline.build(
-  //   operation: {
-  //     ansiColor('xterm') {
-  //       pipeline.nvmShell "npm run prod"
-  //     }
-  //   }
-  // )
-
-  // pipeline.test(
-  //   name          : 'Unit',
-  //   junit         : "target/report.xml",
-  //   cobertura     : [
-  //     coberturaReportFile       : "coverage/cobertura-coverage.xml",
-  //     // if coverage check failed, the pipeline will be marked as UNSTABLE, which
-  //     // will block publish/release. So we overwrite default and set to false here.
-  //     // FIXME: ideally this should set to true (using default by remove this line)
-  //     autoUpdateStability       : false,
-  //     fileCoverageTargets       : '100, 0, 0',
-  //     classCoverageTargets      : '85, 0, 0',
-  //     methodCoverageTargets     : '80, 0, 0',
-  //     lineCoverageTargets       : '80, 0, 0',
-  //     conditionalCoverageTargets: '70, 0, 0',
-  //   ],
-  //   htmlReports   : [
-  //     [dir: "coverage/lcov-report", files: "index.html", name: "Report: Code Coverage"],
-  //   ],
-  // )
-
   // we need sonar scan
   // failBuild set to false whilst investigating https://github.com/zowe/zlux/issues/285
   pipeline.sonarScan(
@@ -106,9 +77,6 @@ node('ibm-jenkins-slave-dind') {
     ],
     allowPublishWithoutTest: true // There are no tests
   )
-
-  // define we need release stage
-  // pipeline.release()
-
+  
   pipeline.end()
 }

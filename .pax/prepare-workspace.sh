@@ -37,10 +37,6 @@ echo "[${SCRIPT_NAME}] cleaning PAX workspace ..."
 rm -fr "${PAX_WORKSPACE_DIR}/content"
 mkdir -p "${PAX_WORKSPACE_DIR}/content"
 
-# copy plugin definition files
-# echo "[${SCRIPT_NAME}] copying plugin definitions ..."
-# cp -r plugin-definition "${PAX_WORKSPACE_DIR}/content"
-
 # build client
 echo "[${SCRIPT_NAME}] building client ..."
 cd "dist"
@@ -48,16 +44,13 @@ npm install
 
 cd "${ROOT_DIR}"
 
-# copy explorer-jes to target folder
+# copy sample-node-api to target folder
 echo "[${SCRIPT_NAME}] copying sample node api backend ..."
 mkdir -p "${PAX_WORKSPACE_DIR}/content"
 cp README.md "${PAX_WORKSPACE_DIR}/content"
 cp package.json "${PAX_WORKSPACE_DIR}/content"
 cp package-lock.json "${PAX_WORKSPACE_DIR}/content"
 cp -r dist/. "${PAX_WORKSPACE_DIR}/content"
-
-echo "Current contents:"
-find "${PAX_WORKSPACE_DIR}/content" -print
 
 # copy start script to target folder
 echo "[${SCRIPT_NAME}] copying startup script ..."
