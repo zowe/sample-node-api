@@ -42,16 +42,9 @@ mkdir -p "${PAX_WORKSPACE_DIR}/content"
 # cp -r plugin-definition "${PAX_WORKSPACE_DIR}/content"
 
 # build client
-echo "$PWD contents..."
-find . -print
-
 echo "[${SCRIPT_NAME}] building client ..."
 cd "dist"
 npm install
-cd ../
-
-echo "$PWD updated contents..."
-find . -print
 
 cd "${ROOT_DIR}"
 
