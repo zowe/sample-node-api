@@ -46,7 +46,9 @@ echo "$PWD contents..."
 find . -print
 
 echo "[${SCRIPT_NAME}] building client ..."
+cd "dist"
 npm install
+cd ../
 
 echo "$PWD updated contents..."
 find . -print
