@@ -42,10 +42,14 @@ mkdir -p "${PAX_WORKSPACE_DIR}/content"
 # cp -r plugin-definition "${PAX_WORKSPACE_DIR}/content"
 
 # build client
-if [ ! -f "dist/app.min.js" ]; then
-  echo "[${SCRIPT_NAME}] building client ..."
-  npm install
-fi
+echo "$PWD contents..."
+find . -print
+
+echo "[${SCRIPT_NAME}] building client ..."
+npm install
+
+echo "$PWD updated contents..."
+find . -print
 
 cd "${ROOT_DIR}"
 
