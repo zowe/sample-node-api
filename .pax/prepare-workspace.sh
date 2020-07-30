@@ -24,8 +24,6 @@ PAX_WORKSPACE_DIR=.pax
 PACKAGE_NAME=$(node -e "console.log(require('./package.json').name)")
 PACKAGE_VERSION=$(node -e "console.log(require('./package.json').version)")
 PACKAGE_DESC=$(node -e "console.log(require('./package.json').description)")
-# APPLICAIION_URI=$(node -e "console.log(require('./package.json').config.baseuri)")
-# APPLICAIION_PORT=$(node -e "console.log(require('./package.json').config.port)")
 ZOWE_PLUGIN_ID="com.ibm.${PACKAGE_NAME}"
 
 cd $BASEDIR
@@ -51,6 +49,7 @@ cp README.md "${PAX_WORKSPACE_DIR}/content"
 cp package.json "${PAX_WORKSPACE_DIR}/content"
 cp package-lock.json "${PAX_WORKSPACE_DIR}/content"
 cp -r dist/. "${PAX_WORKSPACE_DIR}/content"
+cp -r server/. "${PAX_WORKSPACE_DIR}/content/server"
 
 # copy start script to target folder
 echo "[${SCRIPT_NAME}] copying startup script ..."
