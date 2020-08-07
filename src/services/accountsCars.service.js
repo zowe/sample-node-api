@@ -8,7 +8,7 @@
   Copyright IBM Corporation 2020
 */
 
-const data = require('../../data');
+const data = require('../data');
 
 const carsService = require('./cars.service');
 

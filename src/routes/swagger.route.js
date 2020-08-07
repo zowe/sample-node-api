@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router({ mergeParams: true });
 
-
 const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('../swagger.json');
  

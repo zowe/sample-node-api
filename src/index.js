@@ -13,22 +13,27 @@ const http = require('http');
 const https = require('https');
 const cors = require('cors');
 
-const {buildConfigFromParams} = require('./utils/params');
-let config = buildConfigFromParams();
-const {https:{key, cert}, port} = config;
-const credentials = { key, cert};
+//build config from params
+const config = require('./config');
+const {https:{ key, cert}, port, isHttps, serviceName} = config;
+const credentials = {key, cert};
 
+//setup app & its routes
 const app = express();
 app.use(cors());
 const routes = require('./routes/index.route');
 app.use(routes);
 
+//start http server
 const httpServer = http.createServer(app);
-const httpsServer = https.createServer(credentials, app);
-
 httpServer.listen(port);
-httpsServer.listen(port+1);
-console.log(`http server listening at port ${port}`);
-console.log(`https server listening at port ${port + 1}`);
+console.log(`[${serviceName}] http server listening at port ${port}`);
+
+//start https server
+if(isHttps) {
+  const httpsServer = https.createServer(credentials, app);
+  httpsServer.listen(port+1);
+  console.log(`[${serviceName}] https server listening at port ${port + 1}`);
+}
 
 module.exports = { app };
