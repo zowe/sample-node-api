@@ -6,7 +6,7 @@
   ,"host":"localhost:8080"
   ,"basePath":"/"
   ,"tags":[{"name":"Accounts","description":"Accounts API"},{"name":"Cars","description":"Cars API"}]
-  ,"schemes":["http"]
+  ,"schemes":["http","https"]
   ,"produces": ["application/json"],
   "paths": {
     "/accounts": {
