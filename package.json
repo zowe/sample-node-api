@@ -18,6 +18,7 @@
     "yargs": "^8.0.2"
   },
   "devDependencies": {
+    "nodemon": "^2.0.4",
     "mkdirp": "^1.0.3",
     "node-fetch": "^2.3.0",
     "rimraf": "^3.0.2"
