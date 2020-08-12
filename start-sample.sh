@@ -1,5 +1,5 @@
 ## start locally
-node server/app.js --service sample-node-api --port 8080 --key sslcert/server.key --cert sslcert/server.cert -v
+node server/app.js --service sample-node-api --port 18000 --key sslcert/server.key --cert sslcert/server.cert -v
 
 cd ~/zowe/extenders/sample-node-api
 ## start on z/os uss 

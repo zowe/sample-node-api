@@ -2,12 +2,7 @@
 A sample node js api for finding cars and accounts for a dealership,its used here to demonstrate the steps to extend API/ML with your own rest api.     
 
 ## Steps
-
-**Note**  
-`Only rest api with https support can be deployed behind API/ML, make sure to enable https support in your rest api.
-`   
-This sample express app, has https enabled already.    
-
+  
 ## PART I: Download & Build on local
 
 ### 1) Clone the repository, install node packages  and verify routes locally
@@ -17,23 +12,21 @@ This sample express app, has https enabled already.
 git clone https://github.com/zowe/sample-node-api
 cd sample-node-api
 npm install
-npm start
+npm run dev
 ```
 
 Open your local browser and try accessing     
-`https://localhost:4000/accounts/`   
-`https://localhost:4000/accounts/1`   
-`https://localhost:4000/accounts/1/cars/`   
+`http://localhost:18000/accounts/`   
+`http://localhost:18000/accounts/1`   
+`http://localhost:18000/accounts/1/cars/`   
 
 
 ### 2) Transfer project files from local to remote host
 
-**Note**  
-Don't transfer `node_modules` folder, we can do install npm install later on remote server itself to pull down required node packages
 
 ```
 cd sample-node-api
-npm run build
+npm run dist
 scp -r dist ibmuser@my.mainframe.com:</usr/lpp/extender>/sample-node-api
 ```
 

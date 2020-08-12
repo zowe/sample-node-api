@@ -6,8 +6,10 @@
   "scripts": {
     "dev": "nodemon src/index.js",
     "start": "node src/index.js",
-    "build": "npm run clean && cp -r server dist/server && cp -r bin dist/bin && cp *.yml dist && cp *.json dist && cp *.js dist && rimraf dist/package-lock.json",
-    "clean": "rimraf dist && mkdirp dist"
+    "build": "npm run clean && cp -r src dist/src && cp *.yml dist && cp *.json dist",
+    "dist": "npm run build && npm run pack",
+    "clean": "rimraf dist && mkdirp dist",
+    "pack": "copy-node-modules . dist"
   },
   "author": "",
   "license": "EPL-2.0",
@@ -18,9 +20,10 @@
     "yargs": "^8.0.2"
   },
   "devDependencies": {
-    "nodemon": "^2.0.4",
+    "copy-node-modules": "^1.1.1",
     "mkdirp": "^1.0.3",
     "node-fetch": "^2.3.0",
+    "nodemon": "^2.0.4",
     "rimraf": "^3.0.2"
   }
 }

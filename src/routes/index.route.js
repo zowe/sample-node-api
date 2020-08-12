@@ -19,7 +19,7 @@ router.use('/cars', cars);
 router.use('/accounts', accounts);
 router.use('/', swagger);
 
-router.get('/', (req, res) => res.send('Hello World!'));
+router.get('/', (req, res) => res.send('Sample Node API'));
 router.get('/health', (req, res) => {
   const healthcheck = {
 		uptime: process.uptime(),
