@@ -1,4 +1,4 @@
-# sample-node-api  
+# sample-cli-api  
 A sample node js api for finding cars and accounts for a dealership,its used here to demonstrate the steps to extend API/ML with your own rest api.     
 
 ## Steps
@@ -9,8 +9,8 @@ A sample node js api for finding cars and accounts for a dealership,its used her
 
 ``` 
 //on local
-git clone https://github.com/zowe/sample-node-api
-cd sample-node-api
+git clone https://github.com/zowe/sample-cli-api
+cd sample-cli-api
 npm install
 npm run dev
 ```
@@ -25,9 +25,9 @@ Open your local browser and try accessing
 
 
 ```
-cd sample-node-api
+cd sample-cli-api
 npm run dist
-scp -r dist ibmuser@my.mainframe.com:</usr/lpp/extender>/sample-node-api
+scp -r dist ibmuser@my.mainframe.com:</usr/lpp/extender>/sample-cli-api
 ```
 
 ## PART II: Deploy with Zowe on server
@@ -39,7 +39,7 @@ ssh ibmuser@my.mainframe.com
 
 ### 2) install dependencies    
 ```
-cd </usr/lpp/extender>/sample-node-api        
+cd </usr/lpp/extender>/sample-cli-api        
 npm install --only=prod       
 
 ```
@@ -52,20 +52,20 @@ Append it with your service lifecycle scripts.
 In our sample it is:   
 ```
  vi INSTANCE_DIR/instance.env   
- EXTERNAL_COMPONENTS=</usr/lpp/extender>/sample-node-api/bin      
+ EXTERNAL_COMPONENTS=</usr/lpp/extender>/sample-cli-api/bin      
 ```
 
 We expect following in service folder `start.sh`, `configure.sh` and `validate.sh`.
 In our case its bin folder with relevant scripts.    
     
-`configure.sh` it adds static definition for sample-node-api to folder ${INSTANCE_DIR}/workspace/api-mediation/api-defs in IBM-850 encoding     
+`configure.sh` it adds static definition for sample-cli-api to folder ${INSTANCE_DIR}/workspace/api-mediation/api-defs in IBM-850 encoding     
 `start.sh` starts node app on configured port       
 `env.sh` its custom script use to configure port for our node app, feel free to use your desired way         
 
 ### 4) Access newly deployed webservice
 
-Please see static definition file `sample-node-api.yml`      
-It configures service endpoint as `sample-node-api` with property `serviceId`     
+Please see static definition file `sample-cli-api.yml`      
+It configures service endpoint as `sample-cli-api` with property `serviceId`     
 We also provide api gateway base path `api\v1` with property `gatewayUrl` in same file.        
 
 
@@ -75,9 +75,9 @@ In effect, service can be accessed with following url:
 where `GATEWAY_PORT` is configured in $INSTANCE_DIR/instance.env      
 
 Verify by accessing following:      
-`https://my.mainframe.com:7554/api/v1/sample-node-api/accounts/`            
-`https://my.mainframe.com:7554/api/v1/sample-node-api/accounts/1/`            
-`https://my.mainframe.com:7554/api/v1/sample-node-api/accounts/1/cars/`              
+`https://my.mainframe.com:7554/api/v1/sample-cli-api/accounts/`            
+`https://my.mainframe.com:7554/api/v1/sample-cli-api/accounts/1/`            
+`https://my.mainframe.com:7554/api/v1/sample-cli-api/accounts/1/cars/`              
 
 ### 5) Registered With API Catalog
 

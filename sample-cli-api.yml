@@ -1,0 +1,23 @@
+#
+services:
+    - serviceId: sample-cli-api
+      title: sample-cli-api
+      description: Sample CLI API
+      catalogUiTileId: sample-cli-api
+      instanceBaseUrls:
+        - http://localhost:17000/
+      homePageRelativeUrl:  # Home page is at the same URL
+      routedServices:
+        - gatewayUrl: api/v1  # [api/ui/ws]/v{majorVersion}
+          serviceRelativeUrl:
+      apiInfo:
+        - apiId: com.ibm.sample-cli-api
+          gatewayUrl: api/v1
+          version: 1.0.0
+          swaggerUrl: http://localhost:17000/api-docs
+          documentationUrl: http://localhost:17000/api-docs-ui
+
+catalogUiTiles:
+    sample-cli-api:
+      title: sample-cli-api
+      description: Sample CLI API

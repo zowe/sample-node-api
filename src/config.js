@@ -65,7 +65,7 @@ function setUpParams() {
     .option('s', {
     alias: 'service',
     description: 'service-for path',
-    default: 'sample-node-api'
+    default: 'sample-cli-api'
     })
     .option('p', {
     alias: 'port',

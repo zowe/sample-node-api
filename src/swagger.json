@@ -1,8 +1,8 @@
 {
   "swagger":"2.0"
-  ,"info":{"description":"Sample Node API"
+  ,"info":{"description":"Sample CLI API"
   ,"version":"1.0"
-  ,"title":"Sample Node API"}
+  ,"title":"Sample CLI API"}
   ,"host":"localhost:18000"
   ,"basePath":"/"
   ,"tags":[{"name":"Accounts","description":"Accounts API"},{"name":"Cars","description":"Cars API"}]
