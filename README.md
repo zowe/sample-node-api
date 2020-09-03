@@ -21,9 +21,9 @@ npm start
 ```
 
 Open your local browser and try accessing     
-`https://localhost:4000/accounts/`   
-`https://localhost:4000/accounts/1`   
-`https://localhost:4000/accounts/1/cars/`   
+`https://localhost:18000/accounts/`   
+`https://localhost:18000/accounts/1`   
+`https://localhost:18000/accounts/1/cars/`   
 
 
 ### 2) Transfer project files from local to remote host
@@ -53,8 +53,8 @@ npm install --only=prod
 
 ### 3) Manage lifecycle of service with core zowe components
 
-Use property `EXTERNAL_COMPONENT` located in file `$INSTANCE_DIR/instance.env`       
-Append it with your service lifecycle scripts.     
+Use property `EXTERNAL_COMPONENTS` located in file `$INSTANCE_DIR/instance.env`       
+Append it (comma separated) with the directory containing your service lifecycle scripts.
 
 In our sample it is:   
 ```
