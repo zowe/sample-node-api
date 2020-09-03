@@ -37,7 +37,7 @@ mkdir -p "${PAX_WORKSPACE_DIR}/content"
 # build client
 echo "[${SCRIPT_NAME}] building client ..."
 cd "dist"
-npm install
+npm install --only=prod       
 
 cd "${ROOT_DIR}"
 
