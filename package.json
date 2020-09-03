@@ -8,9 +8,7 @@
     "dev:https": "nodemon src/index.js --key sslcert/server.key --cert sslcert/server.cert",
     "start": "node src/index.js",
     "build": "npm run clean && cp -r src dist/src && cp -r bin dist/bin && cp *.yml dist && cp *.json dist && cp README.md dist",
-    "dist": "npm run clean && npm install && npm run build && npm run pack",
-    "clean": "rimraf dist && mkdirp dist",
-    "pack": "copy-node-modules . dist"
+    "clean": "rimraf dist && mkdirp dist"
   },
   "author": "",
   "license": "EPL-2.0",
@@ -21,7 +19,6 @@
     "yargs": "^14.2.1"
   },
   "devDependencies": {
-    "copy-node-modules": "^1.1.1",
     "mkdirp": "^1.0.3",
     "node-fetch": "^2.3.0",
     "nodemon": "^2.0.4",
