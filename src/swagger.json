@@ -3,7 +3,7 @@
   ,"info":{"description":"Sample Node API"
   ,"version":"1.0"
   ,"title":"Sample Node API"}
-  ,"host":"localhost:8080"
+  ,"host":"localhost:18000"
   ,"basePath":"/"
   ,"tags":[{"name":"Accounts","description":"Accounts API"},{"name":"Cars","description":"Cars API"}]
   ,"schemes":["http"]

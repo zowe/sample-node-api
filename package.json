@@ -1,12 +1,16 @@
 {
-  "name": "sample-api",
+  "name": "sample-node-api",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node server/app.js --service sample-node-api --port 8080 --key sslcert/server.key --cert sslcert/server.cert",
-    "build": "npm run clean && cp -r server dist/server && cp -r bin dist/bin && cp *.yml dist && cp *.json dist && cp *.js dist && rimraf dist/package-lock.json",
-    "clean": "rimraf dist && mkdirp dist"
+    "dev": "nodemon src/index.js",
+    "dev:https": "nodemon src/index.js --key sslcert/server.key --cert sslcert/server.cert",
+    "start": "node src/index.js",
+    "build": "npm run clean && cp -r src dist/src && cp -r bin dist/bin && cp *.yml dist && cp *.json dist && cp README.md dist",
+    "dist": "npm run clean && npm install && npm run build && npm run pack",
+    "clean": "rimraf dist && mkdirp dist",
+    "pack": "copy-node-modules . dist"
   },
   "author": "",
   "license": "EPL-2.0",
@@ -14,11 +18,13 @@
     "cors": "^2.8.5",
     "express": "^4.16.4",
     "swagger-ui-express": "^4.1.4",
-    "yargs": "^8.0.2"
+    "yargs": "^14.2.1"
   },
   "devDependencies": {
+    "copy-node-modules": "^1.1.1",
     "mkdirp": "^1.0.3",
     "node-fetch": "^2.3.0",
+    "nodemon": "^2.0.4",
     "rimraf": "^3.0.2"
   }
 }

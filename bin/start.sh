@@ -32,7 +32,7 @@ echo 'load sample-node-api config'
 
 echo "start sample-node-api app on port ${MY_API_PORT}"
 #start component
-$NODE_BIN $COMPONENT_DIR/server/app.js \
+$NODE_BIN $COMPONENT_DIR/src/index.js \
   --service ${MY_API_NAME} \
 	--port ${MY_API_PORT} \
 	--key  ${KEYSTORE_KEY} \
