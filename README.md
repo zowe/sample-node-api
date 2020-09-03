@@ -10,6 +10,7 @@ This sample express app, has https enabled already.
 
 ## PART I: Download & Build on local
 
+## Method 1: From github
 ### 1) Clone the repository, install node packages  and verify routes locally
 
 ``` 
@@ -36,6 +37,29 @@ cd sample-node-api
 npm run build
 scp -r dist ibmuser@my.mainframe.com:</usr/lpp/extender>/sample-node-api
 ```
+
+## Method 2: From Artifactory
+### 1) Download latest pax from artifactory
+Get latest package from [artifactory](https://zowe.jfrog.io/zowe/webapp/#/artifacts/browse/tree/General/libs-snapshot-local/org/zowe/sample-node-api/1.0.0-SNAPSHOT)
+
+Copy latest pax url and use curl to download:
+```
+# on local or directly on z/OS
+curl -O https://zowe.jfrog.io/zowe/libs-snapshot-local/org/zowe/sample-node-api/1.0.0-SNAPSHOT/sample-node-api-1.0.0-snapshot-1-20200903170045.pax
+```
+
+### 2) Transfer and unpax on z/OS
+```
+# From local - if downloaded on z/OS skip this
+sftp ibmuser@mymainframe.ibm.com
+put <pax-name>.pax
+
+# On z/OS
+mkdir sample-node-api
+cd sample-node-api
+pax -ppx -rf ../<pax-name>.pax
+```
+
 
 ## PART II: Deploy with Zowe on server
 
