@@ -14,8 +14,7 @@
 # Build script
 # 
 # - build client
-# - import ui server dependency
-################################################################################
+#################################################################################
 
 # contants
 SCRIPT_NAME=$(basename "$0")
@@ -43,18 +42,10 @@ npm install
 cd "${ROOT_DIR}"
 
 # copy sample-node-api to target folder
+# copy start script to target folder - included in dist
 echo "[${SCRIPT_NAME}] copying sample node api backend ..."
 mkdir -p "${PAX_WORKSPACE_DIR}/content"
-cp README.md "${PAX_WORKSPACE_DIR}/content"
-cp package.json "${PAX_WORKSPACE_DIR}/content"
-cp package-lock.json "${PAX_WORKSPACE_DIR}/content"
 cp -r dist/. "${PAX_WORKSPACE_DIR}/content"
-cp -r server/. "${PAX_WORKSPACE_DIR}/content/server"
-
-# copy start script to target folder
-echo "[${SCRIPT_NAME}] copying startup script ..."
-mkdir -p "${PAX_WORKSPACE_DIR}/content/bin"
-cp -r bin/start.sh "${PAX_WORKSPACE_DIR}/content/bin"
 
 # move content to another folder
 rm -fr "${PAX_WORKSPACE_DIR}/ascii"
