@@ -1,0 +1,19 @@
+name: sample-node-api
+id: org.zowe.sample-node-api
+title: Sample Node API
+description: A Sample Node API extension for Zowe
+license: EPL-2.0
+repository:
+  type: git
+  url: https://github.com/zowe/sample-node-api.git
+build:
+  branch: "{{build.branch}}"
+  number: "{{build.number}}"
+  commitHash: "{{build.commitHash}}"
+  timestamp: "{{build.timestamp}}"
+commands:
+  start: bin/start.sh
+  configure: bin/configure.sh
+apimlServices:
+  static:
+    - file: sample-node-api.yml
