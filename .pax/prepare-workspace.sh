@@ -34,6 +34,10 @@ echo "[${SCRIPT_NAME}] cleaning PAX workspace ..."
 rm -fr "${PAX_WORKSPACE_DIR}/content"
 mkdir -p "${PAX_WORKSPACE_DIR}/content"
 
+cp  manifest.yaml "${PAX_WORKSPACE_DIR}/content"
+cp  README.md "${PAX_WORKSPACE_DIR}/content"
+cp  LICENSE "${PAX_WORKSPACE_DIR}/content"
+
 # build client
 echo "[${SCRIPT_NAME}] building client ..."
 cd "dist"
@@ -59,10 +63,10 @@ sed -e "s|{{build\.branch}}|${BRANCH_NAME}|g" \
     -e "s|{{build\.number}}|${BUILD_NUMBER}|g" \
     -e "s|{{build\.commitHash}}|${commit_hash}|g" \
     -e "s|{{build\.timestamp}}|${current_timestamp}|g" \
-    "${PAX_WORKSPACE_DIR}/ascii/manifest.yaml" > "${PAX_WORKSPACE_DIR}/ascii/manifest.yaml.tmp"
-mv "${PAX_WORKSPACE_DIR}/ascii/manifest.yaml.tmp" "${PAX_WORKSPACE_DIR}/ascii/manifest.yaml"
+    "${PAX_WORKSPACE_DIR}/content/manifest.yaml" > "${PAX_WORKSPACE_DIR}/content/manifest.yaml.tmp"
+mv "${PAX_WORKSPACE_DIR}/content/manifest.yaml.tmp" "${PAX_WORKSPACE_DIR}/content/manifest.yaml"
 echo "[${SCRIPT_NAME}] manifest:"
-cat "${PAX_WORKSPACE_DIR}/ascii/manifest.yaml"
+cat "${PAX_WORKSPACE_DIR}/content/manifest.yaml"
 echo
 
 rsync -rv \
