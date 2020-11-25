@@ -86,7 +86,7 @@ In our sample it is:
  EXTERNAL_COMPONENTS=</usr/lpp/extender>/sample-node-api/bin      
 ```
 
-We expect following in service folder `start.sh`, `configure.sh` and `validate.sh`.
+We expect following in service folder `start.sh` and `configure.sh`.
 In our case its bin folder with relevant scripts.    
     
 `configure.sh` it adds static definition for sample-node-api to folder ${INSTANCE_DIR}/workspace/api-mediation/api-defs in IBM-850 encoding     
