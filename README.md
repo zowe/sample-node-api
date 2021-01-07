@@ -68,28 +68,19 @@ pax -ppx -rf ../<pax-name>.pax
 ssh ibmuser@my.mainframe.com       
 ```
 
-### 2) install dependencies    
-```
-cd </usr/lpp/extender>/sample-node-api        
-npm install --only=prod       
-
+### 2) install component using zowe-install-component.sh script
 ```
 
-### 3) Manage lifecycle of service with core zowe components
+./<zowe-runtime-dir>/bin/zowe-install-component.sh -c <component-name> -i <zowe-instance-dir> -o <component-pax-file> -l <log-folder>
 
-Use property `EXTERNAL_COMPONENTS` located in file `$INSTANCE_DIR/instance.env`       
-Append it (comma separated) with the directory containing your service lifecycle scripts.
-
-In our sample it is:   
-```
- vi INSTANCE_DIR/instance.env   
- EXTERNAL_COMPONENTS=</usr/lpp/extender>/sample-node-api/bin      
 ```
 
-We expect following in service folder `start.sh` and `configure.sh`.
+### 3) Lifecycle scripts of the component
+
+We expect following in service folder `start.sh`, `configure.sh` and `validate.sh`.
 In our case its bin folder with relevant scripts.    
     
-`configure.sh` it adds static definition for sample-node-api to folder ${INSTANCE_DIR}/workspace/api-mediation/api-defs in IBM-850 encoding     
+`configure.sh` sets up specified variables and configuration to help get the component started   
 `start.sh` starts node app on configured port       
 `env.sh` its custom script use to configure port for our node app, feel free to use your desired way         
 
