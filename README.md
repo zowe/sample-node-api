@@ -53,11 +53,6 @@ curl -O https://zowe.jfrog.io/zowe/libs-snapshot-local/org/zowe/sample-node-api/
 # From local - if downloaded on z/OS skip this
 sftp ibmuser@mymainframe.ibm.com
 put <pax-name>.pax
-
-# On z/OS
-mkdir sample-node-api
-cd sample-node-api
-pax -ppx -rf ../<pax-name>.pax
 ```
 
 
@@ -77,7 +72,7 @@ ssh ibmuser@my.mainframe.com
 
 ### 3) Lifecycle scripts of the component
 
-We expect following in service folder `start.sh`, `configure.sh` and `validate.sh`.
+We expect following in service folder `start.sh` and `configure.sh`.
 In our case its bin folder with relevant scripts.    
     
 `configure.sh` sets up specified variables and configuration to help get the component started   
