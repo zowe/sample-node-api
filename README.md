@@ -66,16 +66,15 @@ ssh ibmuser@my.mainframe.com
 ### 2) install component using zowe-install-component.sh script
 ```
 
-./<zowe-runtime-dir>/bin/zowe-install-component.sh -c <component-name> -i <zowe-instance-dir> -o <component-pax-file> -l <log-folder>
+./<zowe-runtime-dir>/bin/zowe-install-component.sh -d <zowe-extensions-dir> -i <zowe-instance-dir> -o <component-pax-file> -l <log-folder>
 
 ```
 
 ### 3) Lifecycle scripts of the component
 
-We expect following in service folder `start.sh` and `configure.sh`.
-In our case its bin folder with relevant scripts.    
-    
-`configure.sh` sets up specified variables and configuration to help get the component started   
+We expect following in service folder `start.sh`.
+In our case its bin folder with relevant scripts.
+
 `start.sh` starts node app on configured port       
 `env.sh` its custom script use to configure port for our node app, feel free to use your desired way         
 
