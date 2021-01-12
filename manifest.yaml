@@ -13,7 +13,6 @@ build:
   timestamp: "{{build.timestamp}}"
 commands:
   start: bin/start.sh
-  configure: bin/configure.sh
 apimlServices:
   static:
     - file: sample-node-api.yml
