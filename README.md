@@ -68,7 +68,7 @@ ssh ibmuser@my.mainframe.com
 
 ### 2) install component using zowe-install-component.sh script
 ```
-./<zowe-runtime-dir>/bin/zowe-install-component.sh -d <zowe-extensions-dir> -i <zowe-instance-dir> -o <component-file-path> -l <log-folder>
+./<zowe-runtime-dir>/bin/zowe-install-component.sh -i <zowe-instance-dir> -o <component-file-path> -l <log-folder>
 ```
 ```
 <zowe-extensions-dir> - Directory that will hold all external extensions installed onto zowe
@@ -86,7 +86,7 @@ We expect following in service folder `start.sh`. In our case its bin folder wit
 
 ### 4) Access newly deployed webservice
 
-Please see static definition file `sample-node-api.yml`      
+Please see static definition file `sample-node-api.yaml.template`      
 It configures service endpoint as `sample-node-api` with property `serviceId`     
 We also provide api gateway base path `api\v1` with property `gatewayUrl` in same file.        
 

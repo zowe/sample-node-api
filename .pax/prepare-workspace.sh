@@ -19,15 +19,15 @@
 # contants
 SCRIPT_NAME=$(basename "$0")
 BASEDIR=$(dirname "$0")
+SCRIPT_DIR=$(cd "$(dirname "$0")" && pwd)
+ROOT_DIR=$(cd "$SCRIPT_DIR" && cd .. && pwd)
 PAX_WORKSPACE_DIR=.pax
+cd "${ROOT_DIR}"
 PACKAGE_NAME=$(node -e "console.log(require('./package.json').name)")
 PACKAGE_VERSION=$(node -e "console.log(require('./package.json').version)")
 PACKAGE_DESC=$(node -e "console.log(require('./package.json').description)")
 ZOWE_PLUGIN_ID="com.ibm.${PACKAGE_NAME}"
 
-cd $BASEDIR
-cd ..
-ROOT_DIR=$(pwd)
 
 # prepare pax workspace
 echo "[${SCRIPT_NAME}] cleaning PAX workspace ..."
@@ -40,6 +40,16 @@ cp  LICENSE "${PAX_WORKSPACE_DIR}/content"
 
 # build client
 echo "[${SCRIPT_NAME}] building client ..."
+# build client
+if [ ! -d "dist" ] || [ -z "$(ls -1 dist/src/index.js)" ]; then
+  echo "[${SCRIPT_NAME}] building client ..."
+  if [ ! -d "node_modules" ]; then
+     npm install
+  fi
+  echo "[${SCRIPT_NAME}] run build ..."
+  npm run build
+fi
+
 cd "dist"
 npm install --only=prod       
 
@@ -77,4 +87,18 @@ rsync -rv \
   "${PAX_WORKSPACE_DIR}/ascii"
 
 echo "[${SCRIPT_NAME}] ${PAX_WORKSPACE_DIR} folder is prepared."
+
+echo "[${SCRIPT_NAME}] ${PAX_WORKSPACE_DIR} prepare local-build and *.tar.gz"
+cd "${PAX_WORKSPACE_DIR}"
+# remove folder for local build & tar
+rm -fr "sample-node-api"
+rm -f "sample-node-api.tar.gz"
+
+# copy ascii to sample-node-api
+cp -r "ascii" "sample-node-api"
+
+# tar sample-node-api
+tar -zcvf "sample-node-api.tar.gz" "sample-node-api"
+echo "[${SCRIPT_NAME}] ${PAX_WORKSPACE_DIR} local-build and *.tar.gz is generated"
+
 exit 0

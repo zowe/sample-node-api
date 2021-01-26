@@ -15,4 +15,4 @@ commands:
   start: bin/start.sh
 apimlServices:
   static:
-    - file: sample-node-api.yml
+    - file: sample-node-api.yaml.template
