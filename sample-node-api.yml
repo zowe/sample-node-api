@@ -1,0 +1,23 @@
+#
+services:
+    - serviceId: sample-node-api
+      title: Sample-Node-API
+      description: Sample Node API
+      catalogUiTileId: sample-node-api
+      instanceBaseUrls:
+        - http://mymainframe.ibm.com:18000/
+      homePageRelativeUrl:  # Home page is at the same URL
+      routedServices:
+        - gatewayUrl: api/v1  # [api/ui/ws]/v{majorVersion}
+          serviceRelativeUrl:
+      apiInfo:
+        - apiId: com.ibm.sample-node-api
+          gatewayUrl: api/v1
+          version: 1.0.0
+          swaggerUrl: http://mymainframe.ibm.com:18000/api-docs
+          documentationUrl: http://mymainframe.ibm.com:18000/api-docs-ui
+
+catalogUiTiles:
+    sample-node-api:
+      title: Sample-Node-API
+      description: Sample Node API
