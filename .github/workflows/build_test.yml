@@ -76,11 +76,7 @@ jobs:
       - name: '[Build] Nodejs project build'
         run: npm run build
 
-      - name: '[Scan 1] Fix code coverage paths'
-        working-directory: ./coverage
-        run: sed -i 's#'$GITHUB_WORKSPACE'#/github/workspace/#g' lcov.info
-
-      - name: '[Scan 2] SonarCloud Scan'
+      - name: '[Scan] SonarCloud Scan'
         uses: sonarsource/sonarcloud-github-action@master
         continue-on-error: true
         env:
