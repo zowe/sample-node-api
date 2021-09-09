@@ -90,10 +90,11 @@ jobs:
           artifacts: .pax/sample-node-api.pax
           perform-release: ${{ github.event.inputs.PERFORM_RELEASE }}
 
-      - name: '[Release 1] Release (if necessary)'
-        if: ${{ success() && github.event.inputs.PERFORM_RELEASE == 'true' && env.IS_RELEASE_BRANCH == 'true' }}
-        uses: zowe-actions/shared-actions/release@main
+      # Currently we don't have release for this project
+      # - name: '[Release 1] Release (if necessary)'
+      #   if: ${{ success() && github.event.inputs.PERFORM_RELEASE == 'true' && env.IS_RELEASE_BRANCH == 'true' }}
+      #   uses: zowe-actions/shared-actions/release@main
 
-      - name: '[Release 2] NPM bump version (if necessary)' 
-        if: ${{ success() && github.event.inputs.PERFORM_RELEASE == 'true' && env.IS_RELEASE_BRANCH == 'true' && env.IS_FORMAL_RELEASE_BRANCH == 'true' && env.PRE_RELEASE_STRING == ''}}
-        uses: zowe-actions/nodejs-actions/bump-version@main
+      # - name: '[Release 2] NPM bump version (if necessary)' 
+      #   if: ${{ success() && github.event.inputs.PERFORM_RELEASE == 'true' && env.IS_RELEASE_BRANCH == 'true' && env.IS_FORMAL_RELEASE_BRANCH == 'true' && env.PRE_RELEASE_STRING == ''}}
+      #   uses: zowe-actions/nodejs-actions/bump-version@main
