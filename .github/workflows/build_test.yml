@@ -65,13 +65,6 @@ jobs:
         uses: zowe-actions/nodejs-actions/setup@main
         with:
           package-name: 'org.zowe.sample-node-api'
-          install-registry-url: ${{ env.DEFAULT_NPM_PRIVATE_INSTALL_REGISTRY }}
-          install-registry-email: ${{ secrets.NPM_PRIVATE_REGISTRY_EMAIL }}
-          install-registry-username: ${{ secrets.NPM_PRIVATE_REGISTRY_USERNAME }}
-          install-registry-password: ${{ secrets.NPM_PRIVATE_REGISTRY_PASSWORD }}
-          publish-registry-email: ${{ secrets.NPM_PRIVATE_REGISTRY_EMAIL }}
-          publish-registry-username: ${{ secrets.NPM_PRIVATE_REGISTRY_USERNAME }}
-          publish-registry-password: ${{ secrets.NPM_PRIVATE_REGISTRY_PASSWORD }}
 
       - name: '[Build] Nodejs project build'
         run: npm run build
