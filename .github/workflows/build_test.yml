@@ -45,7 +45,7 @@ jobs:
             ${{ runner.os }}-build-cache-node-modules-
 
       - name: '[Prep 3] Setup jFrog CLI'
-        uses: jfrog/setup-jfrog-cli@v1
+        uses: jfrog/setup-jfrog-cli@v2
         env:
           JF_ARTIFACTORY_1: ${{ secrets.JF_ARTIFACTORY_TOKEN }}
           
