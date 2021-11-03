@@ -16,7 +16,7 @@ FROM zowe-docker-release.jfrog.io/ompzowe/base-node:${ZOWE_BASE_IMAGE} AS builde
 
 ##################################
 # labels
-LABEL name="Sample-Node-Api" \
+LABEL name="sample-node-api" \
       maintainer="kajank@ca.ibm.com" \
       vendor="Zowe" \
       version="0.0.0" \
