@@ -10,6 +10,7 @@ on:
       PERFORM_RELEASE:
         description: '[Release] perform release'
         required: false
+        default: 'false'
   
 
 jobs:
