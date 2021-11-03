@@ -14,12 +14,19 @@ Each image supports both amd64 and s390x CPU architectures.
 
 Image zowe-docker-release.jfrog.io/ompzowe/sample-node-api:latest should be able to run with minimal environment variables:
 
-    If any??
-
-Other environment variable(s) can be used:
-
-    SAMPLE_NODE_API_UI_PORT: starting port, default is 8546.
-    ZOWE_EXPLORER_HOST: domain name to access the container, default is localhost.
-    ZOWE_IP_ADDRESS: IP address to access the container, default is 127.0.0.1.
+- `KEYSTORE_KEY`: You can supply your own certificate private key
+- `KEYSTORE_CERTIFICATE`: You can supply your own certificate
+- `MY_API_NAME`: You can supply your API NAme (Default is sample-node-api)
+- `MY_API_PORT`: You can supply your own API_PORT (Default is 18000)
 
 Example commands:
+
+```
+# pull image
+docker pull zowe-docker-release.jfrog.io/ompzowe/sample-node-api:latest
+# start container
+docker run -it --rm -p 8546:8546 \
+    -e KEYSTORE_KEY=<key_location> \
+    -e KEYSTORE_CERTIFICATE=<certification_location> \
+    zowe-docker-release.jfrog.io/ompzowe/sample-node-api:latest
+```
