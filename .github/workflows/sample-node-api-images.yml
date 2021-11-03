@@ -1,0 +1,19 @@
+name: Build ompzowe/sample-node-api
+on:
+  #push:
+  # pull_request:
+  workflow_dispatch:
+    inputs:
+      release:
+        description: 'Set to "true" if we want to release the images'
+        required: false
+        default: 'false'
+env:
+  IMAGE_BASE_DIR: container
+
+jobs:
+  dummy:
+    runs-on: ubuntu-latest
+    steps:
+      - id: dummy
+        run: echo "NO OPS"
