@@ -58,6 +58,13 @@ package_version=$(jq -r '.version' package.json)
 package_release=$(echo "${package_version}" | awk -F. '{print $1;}')
 
 
+###############################
+echo ">>>>> clean up folders"
+rm -fr "${BASE_DIR}/${WORK_DIR}"
+mkdir -p "${BASE_DIR}/${WORK_DIR}"
+rm -fr “${BASE_DIR}/${linux_distro}/${cpu_arch}”
+mkdir -p “${BASE_DIR}/${linux_distro}/${cpu_arch}”
+
 ################################
 # copy Dockerfile
 echo ">>>>> copy Dockerfile to ${linux_distro}/${cpu_arch}/Dockerfile"
@@ -69,10 +76,6 @@ if [ ! -f Dockerfile ]; then
 fi
 cat Dockerfile | sed -e "s#version=\"0\.0\.0\"#version=\"${package_version}\"#" -e "s#release=\"0\"#release=\"${package_release}\"#" > "${linux_distro}/${cpu_arch}/Dockerfile"
 
-###############################
-echo ">>>>> clean up folder"
-rm -fr "${BASE_DIR}/${WORK_DIR}"
-mkdir -p "${BASE_DIR}/${WORK_DIR}"
 
 cd "${REPO_ROOT_DIR}"
 cp  manifest.yaml "${BASE_DIR}/${WORK_DIR}"
