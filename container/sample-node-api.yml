@@ -49,7 +49,7 @@ spec:
             claimName: zowe-workspace-pvc
       containers:
         - name: sample-node-api
-          image: zowe-docker-release.jfrog.io/ompzowe/sample-node-api:latest-ubuntu 
+          image: zowe-docker-snapshot.jfrog.io/ompzowe/sample-node-api:latest-ubuntu 
           imagePullPolicy: Always
           resources:
             requests:
