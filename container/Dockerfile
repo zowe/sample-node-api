@@ -36,7 +36,7 @@ COPY --chown=zowe:zowe component/LICENSE /licenses
 
 ##################################
 # build component
-RUN npm install --only=prod \
+RUN npm install --only=prod
 
 # start command
 EXPOSE 18000
