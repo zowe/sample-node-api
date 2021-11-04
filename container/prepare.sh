@@ -86,6 +86,7 @@ cp  LICENSE "${BASE_DIR}/${WORK_DIR}"
 echo "[${SCRIPT_NAME}] building client ..."
 npm install     
 npm run build
+cp -r node_modules "${BASE_DIR}/${WORK_DIR}" 
 
 # copy sample-node-api to target folder
 # copy start script to target folder - included in dist
