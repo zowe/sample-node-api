@@ -63,7 +63,6 @@ echo ">>>>> clean up folders"
 rm -fr "${BASE_DIR}/${WORK_DIR}"
 mkdir -p "${BASE_DIR}/${WORK_DIR}"
 rm -fr “${BASE_DIR}/${linux_distro}/${cpu_arch}”
-mkdir -p “${BASE_DIR}/${linux_distro}/${cpu_arch}”
 
 ################################
 # copy Dockerfile
