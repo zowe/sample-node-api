@@ -59,7 +59,7 @@ spec:
               memory: "128Mi"
               cpu: "100m"
           ports:
-            - name: sample-node-api-port
+            - name: sna-port
               containerPort: 18000
               protocol: TCP
           readinessProbe:
