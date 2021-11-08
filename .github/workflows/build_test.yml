@@ -75,7 +75,7 @@ jobs:
         with:
           pax-name: 'sample-node-api'
           pax-ssh-username: ${{ secrets.SSH_MARIST_USERNAME }}
-          pax-ssh-password: ${{ secrets.SSH_MARIST_PASSWORD }}
+          pax-ssh-password: ${{ secrets.SSH_MARIST_RACF_PASSWORD }}
 
       - name: '[Publish] Publish'
         uses: zowe-actions/shared-actions/publish@main
