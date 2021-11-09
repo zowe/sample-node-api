@@ -13,15 +13,15 @@
   "author": "",
   "license": "EPL-2.0",
   "dependencies": {
-    "cors": "^2.8.5",
-    "express": "^4.16.4",
-    "swagger-ui-express": "^4.1.4",
-    "yargs": "^14.2.1"
+    "cors": "2.8.5",
+    "express": "4.17.1",
+    "swagger-ui-express": "4.1.6",
+    "yargs": "17.2.1"
   },
   "devDependencies": {
-    "mkdirp": "^1.0.3",
-    "node-fetch": "^2.6.1",
-    "nodemon": "^2.0.4",
-    "rimraf": "^3.0.2"
+    "mkdirp": "1.0.4",
+    "node-fetch": "2.6.6",
+    "nodemon": "2.0.14",
+    "rimraf": "3.0.2"
   }
 }

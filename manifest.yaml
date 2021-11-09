@@ -16,3 +16,5 @@ commands:
 apimlServices:
   static:
     - file: sample-node-api.yml
+configs:
+  port: 18000
