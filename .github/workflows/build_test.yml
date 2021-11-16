@@ -24,10 +24,19 @@ jobs:
           user: ${{ github.actor }}
           github-repo: ${{ github.repository }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
+  
+  validate-package-json:
+    needs: check-permission
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Validate package.json
+        uses: zowe-actions/shared-actions/validate-package-json@main
 
   build-test:
     runs-on: ubuntu-latest
-    needs: check-permission
+    needs: validate-package-json
     steps: 
       - name: '[Prep 1] Checkout'
         uses: actions/checkout@v2
