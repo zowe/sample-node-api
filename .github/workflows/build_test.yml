@@ -21,8 +21,6 @@ jobs:
       - name: check permission
         uses: zowe-actions/shared-actions/permission-check@main
         with:
-          user: ${{ github.actor }}
-          github-repo: ${{ github.repository }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
   
   validate-package-json:
@@ -60,9 +58,6 @@ jobs:
           
       - name: '[Prep 4] Prepare workflow'
         uses: zowe-actions/shared-actions/prepare-workflow@main
-        with:
-          github-user: ${{ github.actor }}
-          github-email: 'dummy-email@email.com'
           
       - name: '[Prep 5] Setup Node'
         uses: actions/setup-node@v2
