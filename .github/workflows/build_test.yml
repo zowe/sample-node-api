@@ -95,4 +95,4 @@ jobs:
       #   if: ${{ success() && github.event.inputs.PERFORM_RELEASE == 'true' && env.IS_RELEASE_BRANCH == 'true' && env.IS_FORMAL_RELEASE_BRANCH == 'true' && env.PRE_RELEASE_STRING == ''}}
       #   uses: zowe-actions/nodejs-actions/bump-version@main
       #   env: 
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #     GITHUB_TOKEN: ${{ secrets.ZOWE_ROBOT_TOKEN }}
