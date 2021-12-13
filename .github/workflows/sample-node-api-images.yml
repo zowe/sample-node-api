@@ -5,9 +5,10 @@ on:
   workflow_dispatch:
     inputs:
       release:
-        description: 'Set to "true" if we want to release the images'
+        description: 'release the images?'
         required: false
         default: 'false'
+        type: boolean
 env:
   IMAGE_BASE_DIR: container
 
