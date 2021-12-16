@@ -15,7 +15,7 @@
   "dependencies": {
     "cors": "2.8.5",
     "express": "4.17.1",
-    "swagger-ui-express": "4.1.6",
+    "swagger-ui-express": "4.2.0",
     "yargs": "17.2.1"
   },
   "devDependencies": {
