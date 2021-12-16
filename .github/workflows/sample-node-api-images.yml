@@ -5,15 +5,163 @@ on:
   workflow_dispatch:
     inputs:
       release:
-        description: 'Set to "true" if we want to release the images'
+        description: 'release the images?'
         required: false
         default: 'false'
+        type: boolean
 env:
   IMAGE_BASE_DIR: container
 
 jobs:
-  dummy:
+
+  build-ubuntu-amd64:
     runs-on: ubuntu-latest
     steps:
-      - id: dummy
-        run: echo "NO OPS"
+      - uses: actions/checkout@v2
+
+      - uses: zowe-actions/shared-actions/prepare-workflow@main
+
+      - uses: zowe-actions/shared-actions/docker-prepare@main
+        with:
+          registry-user: ${{ secrets.ARTIFACTORY_X_USERNAME }}
+          registry-password: ${{ secrets.ARTIFACTORY_X_PASSWORD }}
+          release: ${{ github.event.inputs.release }}
+          base-directory: ${{ env.IMAGE_BASE_DIR }}
+          image-name: sample-node-api
+          linux-distro: ubuntu
+          cpu-arch: amd64
+
+      - uses: zowe-actions/shared-actions/docker-build-local@main
+        with:
+          build-arg-list: ZOWE_BASE_IMAGE=latest-ubuntu
+        timeout-minutes: 5
+
+  build-ubuntu-s390x:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: zowe-actions/shared-actions/prepare-workflow@main
+
+      - uses: zowe-actions/shared-actions/docker-prepare@main
+        with:
+          registry-user: ${{ secrets.ARTIFACTORY_X_USERNAME }}
+          registry-password: ${{ secrets.ARTIFACTORY_X_PASSWORD }}
+          release: ${{ github.event.inputs.release }}
+          base-directory: ${{ env.IMAGE_BASE_DIR }}
+          image-name: sample-node-api
+          linux-distro: ubuntu
+          cpu-arch: s390x
+
+      - uses: zowe-actions/shared-actions/docker-build-zlinux@main
+        with:
+          zlinux-host: ${{ secrets.ZLINUX_HOST }}
+          zlinux-ssh-user: ${{ secrets.ZLINUX_SSH_USER }}
+          zlinux-ssh-key: ${{ secrets.ZLINUX_SSH_KEY }}
+          zlinux-ssh-passphrase: ${{ secrets.ZLINUX_SSH_PASSPHRASE }}
+          build-arg-list: ZOWE_BASE_IMAGE=latest-ubuntu
+        timeout-minutes: 10
+
+  define-ubuntu-manifest:
+    needs:
+      - build-ubuntu-amd64
+      - build-ubuntu-s390x
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: zowe-actions/shared-actions/prepare-workflow@main
+
+      - uses: zowe-actions/shared-actions/docker-prepare@main
+        with:
+          registry-user: ${{ secrets.ARTIFACTORY_X_USERNAME }}
+          registry-password: ${{ secrets.ARTIFACTORY_X_PASSWORD }}
+          release: ${{ github.event.inputs.release }}
+          base-directory: ${{ env.IMAGE_BASE_DIR }}
+          image-name: sample-node-api
+          linux-distro: ubuntu
+
+      - uses: zowe-actions/shared-actions/docker-manifest@main
+        with:
+          linux-distro: ubuntu
+          cpu-arch-list: "amd64 s390x"
+        timeout-minutes: 2
+
+  build-ubi-amd64:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: zowe-actions/shared-actions/prepare-workflow@main
+
+      - uses: zowe-actions/shared-actions/docker-prepare@main
+        with:
+          registry-user: ${{ secrets.ARTIFACTORY_X_USERNAME }}
+          registry-password: ${{ secrets.ARTIFACTORY_X_PASSWORD }}
+          release: ${{ github.event.inputs.release }}
+          base-directory: ${{ env.IMAGE_BASE_DIR }}
+          image-name: sample-node-api
+          linux-distro: ubi
+          cpu-arch: amd64
+          redhat-registry: ${{ env.DEFAULT_REDHAT_DOCKER_REGISTRY }}
+          redhat-registry-user: ${{ secrets.REDHAT_DEVELOPER_USER }}
+          redhat-registry-password: ${{ secrets.REDHAT_DEVELOPER_PASSWORD }}
+
+      - uses: zowe-actions/shared-actions/docker-build-local@main
+        with:
+          build-arg-list: ZOWE_BASE_IMAGE=latest-ubi
+        timeout-minutes: 5
+
+  build-ubi-s390x:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: zowe-actions/shared-actions/prepare-workflow@main
+
+      - uses: zowe-actions/shared-actions/docker-prepare@main
+        with:
+          registry-user: ${{ secrets.ARTIFACTORY_X_USERNAME }}
+          registry-password: ${{ secrets.ARTIFACTORY_X_PASSWORD }}
+          release: ${{ github.event.inputs.release }}
+          base-directory: ${{ env.IMAGE_BASE_DIR }}
+          image-name: sample-node-api
+          linux-distro: ubi
+          cpu-arch: s390x
+
+      - uses: zowe-actions/shared-actions/docker-build-zlinux@main
+        with:
+          zlinux-host: ${{ secrets.ZLINUX_HOST }}
+          zlinux-ssh-user: ${{ secrets.ZLINUX_SSH_USER }}
+          zlinux-ssh-key: ${{ secrets.ZLINUX_SSH_KEY }}
+          zlinux-ssh-passphrase: ${{ secrets.ZLINUX_SSH_PASSPHRASE }}
+          redhat-registry: ${{ env.DEFAULT_REDHAT_DOCKER_REGISTRY }}
+          redhat-registry-user: ${{ secrets.REDHAT_DEVELOPER_USER }}
+          redhat-registry-password: ${{ secrets.REDHAT_DEVELOPER_PASSWORD }}
+          build-arg-list: ZOWE_BASE_IMAGE=latest-ubi
+        timeout-minutes: 10
+
+  define-ubi-manifest:
+    needs:
+      - build-ubi-amd64
+      - build-ubi-s390x
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: zowe-actions/shared-actions/prepare-workflow@main
+
+      - uses: zowe-actions/shared-actions/docker-prepare@main
+        with:
+          registry-user: ${{ secrets.ARTIFACTORY_X_USERNAME }}
+          registry-password: ${{ secrets.ARTIFACTORY_X_PASSWORD }}
+          release: ${{ github.event.inputs.release }}
+          base-directory: ${{ env.IMAGE_BASE_DIR }}
+          image-name: sample-node-api
+          linux-distro: ubi
+
+      - uses: zowe-actions/shared-actions/docker-manifest@main
+        with:
+          linux-distro: ubi
+          cpu-arch-list: "amd64 s390x"
+        timeout-minutes: 2

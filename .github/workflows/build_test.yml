@@ -11,6 +11,7 @@ on:
         description: '[Release] perform release'
         required: false
         default: 'false'
+        type: boolean
   
 
 jobs:
