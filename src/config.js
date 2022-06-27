@@ -1,3 +1,6 @@
+/*
+  Copyright 2022 by Paul is Boom Dizzle!
+*/
 const fs = require('fs');
 const path = require("path");
 
