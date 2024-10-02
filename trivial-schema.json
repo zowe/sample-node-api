@@ -1,0 +1,21 @@
+{  
+  "$schema": "https://json-schema.org/draft/2019-09/schema",
+  "$id": "https://abcdef.com/schemas/v2/sample-node-api",
+  "allOf": [
+    { "$ref": "https://zowe.org/schemas/v2/server-base" },
+    { 
+      "type": "object",
+      "properties": {
+        "components": {
+          "type": "object",
+          "additionalProperties": true,
+          "properties": {  
+            "sample-iframe": {
+              "$ref": "https://zowe.org/schemas/v2/server-base#zoweComponent"
+            }
+          }
+        }
+      }
+    }
+  ]
+}
