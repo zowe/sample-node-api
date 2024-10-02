@@ -18,3 +18,5 @@ apimlServices:
     - file: sample-node-api.yml
 configs:
   port: 18000
+schemas:
+  configs: trivial-schema.json
